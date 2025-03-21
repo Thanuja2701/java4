@@ -1,0 +1,206 @@
+DAY-4
+
+OPERATOR OVERLOADING
+_________________________
+
+public class Main {
+	public static void main(String[] args) {
+
+		Shoppingitems ref=new Shoppingitems();
+
+		ref.additems("Hamam", 30);
+
+		ref.additems("Hamam", 30, 2);
+
+		ref.additems("Hamam", 30, 2, 15);
+
+	}
+
+}
+class Shoppingitems{
+
+	void additems(String item_name,int price){
+
+		System.out.println("Item name:"+item_name+" "+"Original price:"+price);
+
+	}
+
+	void additems(String item_name,int price,int item_quantity) {
+
+		double totalprice=item_quantity*price;
+
+		System.out.println("Item name:"+item_name+" "+"Item quantity ="+item_quantity+" "+"Final price:"+totalprice);
+
+	}
+
+	void additems(String item_name,int price,int item_quantity,int discount) {
+
+		double afterdiscount=(item_quantity*price)-discount;
+         System.out.println("Discount:"+afterdiscount);
+		System.out.println("Item name:"+item_name+" "+"Final price:"+afterdiscount);
+
+	}
+
+}
+
+
+
+Item name:Hamam Original price:30
+Item name:Hamam Item quantity =2 Final price:60.0
+Discount:45.0
+Item name:Hamam Final price:45.0
+
+
+OPERATOR OVERRIDDING:
+___________________________
+
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+       
+         topayvia ref;
+     
+     ref=new creditupi();
+     ref.pay(2000);
+     ref=new gpay();
+     ref.pay(3000);
+     ref=new topayvia();
+     ref.pay(3000);
+     Scanner input = new Scanner(System.in);
+        int amt=input.nextInt();
+         ref=new btob();
+    }
+}
+class topayvia{
+    void pay( int amount){
+        System.out.println("inhand amout:"+amount);
+    }
+}
+class creditupi extends topayvia{
+    void pay(int amount)
+    {
+        System.out.println("UPI payment:"+amount);
+    }
+}
+class gpay extends topayvia{
+    void pay(int amount)
+    {
+        System.out.println("gpay payment:"+amount);
+    }
+}
+class btob extends topayvia{
+    void pay(int amt){
+         
+        System.out.println("bank to bank transfer:"+amt);
+    }
+}
+
+
+
+ABSTRACT CLASS:
+________________
+
+class Main {
+    public static void main(String[] args) {
+       Vechical ref=new Bike();
+       ref.Startsusing();
+    }
+}
+abstract class Vechical{
+    abstract void Startsusing();
+}
+class Bike extends Vechical{
+        void Startsusing(){
+            System.out.println("bike start with kick");
+        }
+    }
+
+output:
+
+bike start with kick
+
+INTERFACE:
+___________
+
+class Main {
+    public static void main(String[] args) {
+        Subclass ref=new Subclass();
+        ref.sending();
+        ref.sended();
+      
+    }
+}
+interface Superclass1{
+     void sending();
+}  
+interface Superclass2{
+     void sended();
+}  
+class Subclass implements Superclass1,Superclass2{
+    public void sending(){
+        System.out.println("superclass1:");
+}
+public void sended(){
+     System.out.println("superclass2:");
+}
+}
+
+
+OUTPUT:
+
+superclass1:
+superclass2:
+
+METHOD OVERLOADING 
+
+class Main {
+    public static void main(String[] args) {
+        Salary_calculation ref= new Salary_calculation();
+        ref.Salary(800);
+        ref.Salary(100,4);
+         ref.Salary(100,4,300);
+       
+    }
+}
+
+class Salary_calculation{
+    void Salary(int fixed_salary){
+        System.out.println("Salary="+fixed_salary);
+    }
+    void Salary(int salary,int hours){
+       int pt=hours*salary;
+       System.out.println("part time salary:"+pt); 
+    }
+    void Salary(int salary,int hours,int bonus){
+       int pt=(hours*salary)+bonus;
+       System.out.println("salary with bonus:"+pt); 
+    }
+}
+
+output:
+
+Salary=2000
+part time salary:400
+salary with bonus:700
+
+
+
+EXCEPTION HANDLING:
+______________________
+
+public class Main {
+    public static void main(String[] args) {
+        try{
+            int num=10/0;
+        }catch(ArithmeticException e){
+            System.out.println("cannot divide by zero"+e.getMessage());
+        }finally{
+            System.out.println("execution completed");
+        }
+        }
+        }
+
+output:
+cannot divide by zero/ by zero
+execution completed
